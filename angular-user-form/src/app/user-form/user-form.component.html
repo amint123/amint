@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>Welcome to Zhumengyuan</h1>
+<form>
+  <div class="form-group">
+     <label for="name">Name:</label>
+     <input type="text" class="form-control" id="name" required
+     [(ngModel)]="userData.name" name="name" #name="ngModel">
+    <!--<div [hidden]="userData.name.val ||userData.name.pristine"
+         class="alert alert-danger">
+      Name is required
+    </div>-->
+  </div>
+<!--<p>
+  Value:{{name.value}}
+</p>-->
+  <div class="form-group">
+    <label for="sex">Sex:</label>
+   <input type="radio" value="Man" id="sex"
+          [(ngModel)]="userData.sex" name="sex">Man
+    <input type="radio" value="Woman"
+           [(ngModel)]="userData.sex" name="sex">Woman
+  </div>
+
+  <div class="form-group">
+    <label for="age">Age:</label>
+    <input type="text" class="form-control" id="age"
+           [(ngModel)]="userData.age" name="age">
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone:</label>
+    <input type="text" class="form-control" id="phone"
+           [(ngModel)]="userData.phone" name="phone">
+  </div>
+
+  <div class="form-group">
+    <label for="adress">Adress</label>
+    <input type="text" class="form-control" id="adress"
+           [(ngModel)]="userData.adress" name="adress">
+  </div>
+
+  <button type="submit" class="btn btn-success" (click)="onSubmit()">Save</button>
+</form>
+</div>
