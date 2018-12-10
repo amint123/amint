@@ -20,6 +20,7 @@ button {
   font-family: Arial;
   background-color: #eee;
   border: none;
+  margin-left: 20px;
    border-radius: 4px;
   cursor: pointer;
   cursor: hand;
@@ -66,4 +67,10 @@ nav a.active {
 
 .ng-invalid:not(form)  {
   border-left: 5px solid #a94442; /* red */
+}
+#sex{
+  margin-left: 30px;
+}
+#sex1{
+  margin-left: 30px;
 }

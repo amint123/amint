@@ -1,44 +1,66 @@
 <div class="container">
   <h1>Welcome to Zhumengyuan</h1>
-<form>
-  <div class="form-group">
-     <label for="name">Name:</label>
-     <input type="text" class="form-control" id="name" required
-     [(ngModel)]="userData.name" name="name" #name="ngModel">
-    <!--<div [hidden]="userData.name.val ||userData.name.pristine"
-         class="alert alert-danger">
-      Name is required
-    </div>-->
-  </div>
-<!--<p>
-  Value:{{name.value}}
-</p>-->
-  <div class="form-group">
-    <label for="sex">Sex:</label>
-   <input type="radio" value="Man" id="sex"
-          [(ngModel)]="userData.sex" name="sex">Man
-    <input type="radio" value="Woman"
-           [(ngModel)]="userData.sex" name="sex">Woman
-  </div>
+  <form (ngSubmit)="onsubmit()" #userForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name"
+             required minlength="1" maxlength="20"
+             [(ngModel)]="userData.name" name="name" #name="ngModel">
+      <!--<div [hidden]="userData.name.val ||userData.name.pristine"
+           class="alert alert-danger">
+        Name is required
+      </div>-->
+      <div *ngIf="name.invalid && (name.dirty || name.touched)"
+           class="alert alert-danger">
+        Name is not empty !
+      </div>
 
-  <div class="form-group">
-    <label for="age">Age:</label>
-    <input type="text" class="form-control" id="age"
-           [(ngModel)]="userData.age" name="age">
-  </div>
+    </div>
+    <!--<p>
+      Value:{{name.value}}
+    </p>-->
+    <div class="form-group">
+      <label for="sex">Sex:</label>
+      <input type="radio" value="Man" id="sex" checked="checked"
+             [(ngModel)]="userData.sex" name="sex"><label for="sex">Man</label>
+      <input type="radio" value="Woman" id="sex1"
+             [(ngModel)]="userData.sex" name="sex1"><label for="sex1">Woman</label>
+    </div>
 
-  <div class="form-group">
-    <label for="phone">Phone:</label>
-    <input type="text" class="form-control" id="phone"
-           [(ngModel)]="userData.phone" name="phone">
-  </div>
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input type="text" class="form-control" id="age" minlength="1" maxlength="3"
+             required onkeyup="if(!/^(?:[1-9][0-9]?|1[01][0-9]|120)$/.test(value)){value=''}"
+             [(ngModel)]="userData.age" name="age" #age="ngModel">
 
-  <div class="form-group">
-    <label for="adress">Adress</label>
-    <input type="text" class="form-control" id="adress"
-           [(ngModel)]="userData.adress" name="adress">
-  </div>
+      <div *ngIf="age.invalid && (age.dirty || age.touched)" class="alert alert-danger">
+        Age is not empty !!!
+      </div>
+    </div>
 
-  <button type="submit" class="btn btn-success" (click)="onSubmit()">Save</button>
-</form>
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="text" class="form-control" id="phone" required minlength="11" maxlength="11"
+             (keyup)="onPhoneInputKeyUp($event)"
+             [(ngModel)]="userData.phone" name="phone" #phone="ngModel">
+      <div *ngIf="isNotPhoneNumber && (phone.dirty || phone.touched)" class="alert alert-danger">
+        Plese enter a valid telephone !!!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="adress">Adress</label>
+      <input type="text" class="form-control" id="adress"
+             required minlength="3" maxlength="50"
+             [(ngModel)]="userData.adress" name="adress" #adress="ngModel">
+      <div *ngIf="adress.invalid && (adress.dirty || adress.touched)" class="alert alert-danger">
+        Adress is not empty !!!
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="onSubmit()"
+            [disabled]="!userForm.form.valid">Save
+    </button>
+    <button type="submit" class="btn btn-success" (click)="onCancel()">Cancel</button>
+  </form>
 </div>
