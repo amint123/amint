@@ -1,5 +1,4 @@
 import {AfterViewChecked, Component} from '@angular/core';
-import {FormControl} from '@angular/forms';
 import {Form} from '../form';
 import {Router} from '@angular/router';
 
@@ -13,28 +12,27 @@ export class UserFormComponent implements AfterViewChecked {
 
   public isNotPhoneNumber = false;
 
-  constructor(private router: Router,) {
+  constructor(private router: Router ) {
     if (localStorage.getItem('userData')) {
       this.userData = JSON.parse(localStorage.getItem('userData'));
     }
   }
 
   ngAfterViewChecked() {
-    this.userData && console.log(this.userData.phone);
   }
 
   public onSubmit() {
     const userData = JSON.stringify(this.userData);
     localStorage.setItem('userData', userData);
-    this.router.navigate(['']);
+    this.router.navigate(['/detail/view']);
   }
 
   public onCancel() {
-    alert('Are you sure to cancel ? ');
     const userData = JSON.stringify(this.userData);
     localStorage.key(0);
-    this.router.navigate(['']);
+    this.router.navigate(['index']);
   }
+
 
   public onPhoneInputKeyUp(event: any) {
     this.isNotPhoneNumber = !this.isPhoneAvailable(event.target.value);
