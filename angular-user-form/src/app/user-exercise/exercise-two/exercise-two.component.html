@@ -1,0 +1,12 @@
+<button class="btn btn-success" (click)="onGlobal()">Global Mood</button>
+<div>
+<ul>
+  <li *ngFor="let gMood of globalService.globalMood">{{gMood}}</li>
+</ul>
+</div>
+<button class="btn btn-success" (click)="onMoment()">Moment Mood</button>
+<div>
+  <ul>
+    <li *ngFor="let mMood of momentService.momentMood">{{mMood}}</li>
+  </ul>
+</div>
