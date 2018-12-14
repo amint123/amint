@@ -20,6 +20,7 @@ import { ThreeCurrentComponent } from './user-exercise/exercise-three/three-curr
 import { ThreeSecondComponent } from './user-exercise/exercise-three/three-second/three-second.component';
 import {GlobalMoodService} from './user-exercise/global-mood.service';
 import {MomentMoodService} from './user-exercise/moment-mood.service';
+import { ExerciseFourComponent } from './user-exercise/exercise-four/exercise-four.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import {MomentMoodService} from './user-exercise/moment-mood.service';
     ExerciseThreeComponent,
     ThreeCurrentComponent,
     ThreeSecondComponent,
+    ExerciseFourComponent,
   ],
   imports: [
     BrowserModule,

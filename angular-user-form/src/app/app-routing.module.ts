@@ -11,6 +11,7 @@ import {UserExerciseComponent} from './user-exercise/user-exercise.component';
 import {ExerciseOneComponent} from './user-exercise/exercise-one/exercise-one.component';
 import {ExerciseTwoComponent} from './user-exercise/exercise-two/exercise-two.component';
 import {ExerciseThreeComponent} from './user-exercise/exercise-three/exercise-three.component';
+import {ExerciseFourComponent} from './user-exercise/exercise-four/exercise-four.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full'},
@@ -26,6 +27,7 @@ const routes: Routes = [
     { path: 'one', component: ExerciseOneComponent },
     { path: 'two', component: ExerciseTwoComponent },
     { path: 'three', component: ExerciseThreeComponent },
+    { path: 'four', component: ExerciseFourComponent }
   ]},
   { path: '**', redirectTo: 'index'},
 ];

@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import {interval} from 'rxjs/index';
+import { Component, OnInit , OnDestroy} from '@angular/core';
+import {interval, Subscription} from 'rxjs/index';
 
 @Component({
   selector: 'app-three-current',
   templateUrl: './three-current.component.html',
   styleUrls: ['./three-current.component.css']
 })
-export class ThreeCurrentComponent implements OnInit {
-  public now ;
+export class ThreeCurrentComponent implements OnInit , OnDestroy {
+  private secondCouter: Subscription ;
+  public date = new Date() ;
   constructor() { }
-
   ngOnInit() {
-    this.now = new Date();
-    const secondCouter = interval(1000);
-    secondCouter.subscribe(n => this.now = new Date());
+    this.secondCouter =  interval(1000).subscribe(n => this.date = new Date);
   }
-
+  ngOnDestroy(): void {
+    this.secondCouter.unsubscribe();
+  }
 }
