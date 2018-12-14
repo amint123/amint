@@ -1,3 +1,3 @@
-<p>
-  three-second works!
-</p>
+<button class="btn btn-success" (click)="counter.onBegin()">{{counter.Begin}}</button>
+<button class="btn btn-success" (click)="counter.onEnd()" [class.hide]="counter.showEnd">End</button>
+<p>{{counter.second}}</p>
