@@ -1,0 +1,39 @@
+<nz-layout class="layout">
+  <nz-layout>
+    <nz-sider [nzWidth]="200" style="background: #fff">
+      <!--<ul nz-menu [nzMode]="'inline'" style="height: 100%;">
+        <li nz-submenu style="background: #f0f2f2; margin-top: 0px">
+          <span title><i nz-icon type="user"></i>首页</span>
+          <ul>
+            <li nz-menu-item>首页</li>
+          </ul>
+        </li>
+      </ul>-->
+      <ul nz-menu [nzMode]="'inline'">
+        <li nz-submenu [(nzOpen)]="openMap.sub1">
+          <span title style="color: #888888;font-size: 20px;"><i nz-icon type="setting"></i>首页</span>
+          <ul>
+            <li nz-menu-item>首页</li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+
+    <nz-layout>
+      <nz-breadcrumb style="height: 49px; background: #fff;">
+        <nz-breadcrumb-item><a routerLink="/main"></a>
+          首页</nz-breadcrumb-item>
+        <nz-breadcrumb-item><a routerLink="/main/home"></a>
+          首页内容</nz-breadcrumb-item>
+        <!--<nz-breadcrumb-item>List</nz-breadcrumb-item>
+        <nz-breadcrumb-item>App</nz-breadcrumb-item>-->
+      </nz-breadcrumb>
+
+      <nz-layout style="height: 857px">
+        <nz-content>
+          <div class="home-text"><strong>欢迎登录扫码挪车运营后台</strong></div>
+        </nz-content>
+      </nz-layout>
+    </nz-layout>
+  </nz-layout>
+</nz-layout>

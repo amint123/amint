@@ -1,0 +1,16 @@
+<nz-layout class="layout">
+  <nz-sider [nzWidth]="200" style="background: #fff">
+    <ul nz-menu [nzMode]="'inline'">
+      <li nz-submenu [(nzOpen)]="openMap.sub1">
+        <span title style="color: #888888;font-size: 20px;"><i nz-icon type="setting"></i>链接管理</span>
+        <ul>
+          <li nz-menu-item (click)="onCreate()">生成链接</li>
+          <li nz-menu-item (click)="onHistory()">生成链接历史记录</li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <div class="router">
+    <router-outlet></router-outlet>
+  </div>
+</nz-layout>

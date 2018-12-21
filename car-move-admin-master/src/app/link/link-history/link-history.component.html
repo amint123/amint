@@ -1,0 +1,28 @@
+<nz-breadcrumb style="height: 49px; background: #fff;">
+  <nz-breadcrumb-item><a routerLink="/main/link"></a>
+    链接</nz-breadcrumb-item>
+  <nz-breadcrumb-item><a routerLink="/main/history"></a>
+    生成链接历史记录</nz-breadcrumb-item>
+</nz-breadcrumb>
+<div class="data-list">
+  <p><strong>生成链接历史记录</strong></p>
+  <nz-table #filterTable [nzData]="LinkHistoty">
+    <thead (nzSortChange)="sort($event)" nzSingleSort>
+     <tr>
+       <th nzShowSort nzSortKey="date">日期</th>
+       <th nzShowSort nzSortKey="time" >时间</th>
+       <th>数量</th>
+       <th>操作</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let data of filterTable.data">
+       <td>{{data.date}}</td>
+       <td>{{data.time}}</td>
+       <td>{{data.count}}</td>
+       <td style="border-right: 1px solid #dfdfdf"><a>导出</a></td>
+     </tr>
+
+    </tbody>
+  </nz-table>
+</div>

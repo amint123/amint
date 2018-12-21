@@ -1,0 +1,17 @@
+<p><strong>欢迎进入扫码挪车运营后台</strong></p>
+<div class="container">
+  <form action="#" method="get" #userForm="ngForm">
+<div class="form-group">
+<label for="username">用户名：</label><br>
+  <input type="text" name="username" id="username" #name="ngModel" class="form-control" [(ngModel)]="userData.username" required>
+</div>
+  <div class="form-group">
+    <label for="userpassword">密码：</label><br>
+    <input type="password" name="userpassword" id="userpassword" class="form-control" [(ngModel)]="userData.userpassword">
+  </div>
+  <div *ngIf="loginDanger" class="alert alert-danger">
+    用户名或者密码不正确！
+  </div>
+  <button type="submit" (click)="onLoginPower()" class="btn btn-success">登录</button>
+</form>
+</div>

@@ -1,0 +1,40 @@
+<nz-breadcrumb style="height: 49px; background: #fff;">
+  <nz-breadcrumb-item><a routerLink="/main/management"></a>
+    管理</nz-breadcrumb-item>
+  <nz-breadcrumb-item><a routerLink="/main/management/muser"></a>
+    用户管理</nz-breadcrumb-item>
+</nz-breadcrumb>
+<div class="data-select">
+  <div class="data-select-head"><p><strong>数据筛选</strong></p></div>
+  <div class="data-select-content">
+    <p>手机号:</p><input type="text" nz-input nzSize="large" placeholder="拼团编号" [(ngModel)]="inTel" name="inTel">
+    <p>车牌号:</p><input type="text" nz-input nzSize="large" [(ngModel)]="inLicense" name="inLicense">
+    <p>服务状态:</p><input type="text" nz-input nzSize="large" [(ngModel)]="inputState" name="inputState">
+    <p>绑定时间:</p><input type="text" nz-input nzSize="large" placeholder="绑定时间" [(ngModel)]="inputTime" name="inputTime">
+    <button nz-button [nzSize]="size" nzType="primary"  (click)="onCheckUser()"><i nz-icon type="search" theme="outline"></i>查询</button>
+    <button  nz-button [nzSize]="size" nzType="default" (click)="onClear()"><i nz-icon type="reload" theme="outline"></i>重置</button>
+  </div>
+</div>
+<div class="data-list">
+<p><strong>数据列表</strong></p>
+  <nz-table #basicTable [nzData]="UserData">
+    <thead>
+   <tr>
+     <th>绑定时间</th>
+     <th>手机号</th>
+     <th>车牌号</th>
+     <th>服务状态</th>
+     <th>操作</th>
+   </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{data.time}}</td>
+      <td>{{data.tel}}</td>
+      <td>{{data.license}}</td>
+      <td>{{data.state}}</td>
+      <td style="color: #1E67DC" (click)="onChangeState(data.license)">{{data.handle}}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>

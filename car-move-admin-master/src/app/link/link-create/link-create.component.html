@@ -1,0 +1,13 @@
+<nz-breadcrumb style="height: 49px; background: #fff;">
+  <nz-breadcrumb-item><a routerLink="/main/link"></a>
+    链接</nz-breadcrumb-item>
+  <nz-breadcrumb-item><a routerLink="/main/create"></a>
+    生成链接</nz-breadcrumb-item>
+</nz-breadcrumb>
+<div class="data-select">
+  <div class="data-select-head"><p><strong>生成链接</strong></p></div>
+  <div class="data-content">
+    <div>数量：</div><input type="number" nz-input nzSize="large"><br>
+    <button nz-button [nzSize]="size" nzType="primary">生成并导出</button>
+  </div>
+</div>

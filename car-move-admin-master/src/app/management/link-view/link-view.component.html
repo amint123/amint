@@ -1,0 +1,31 @@
+<nz-breadcrumb style="height: 49px; background: #fff;">
+  <nz-breadcrumb-item><a routerLink="/main/management/linkView"></a>
+    查看链接</nz-breadcrumb-item>
+</nz-breadcrumb>
+<div class="link-view">
+<p><strong>数据列表</strong></p>
+  <nz-table #filterTable [nzData]="LinkViewData">
+    <thead nzSingleSort>
+      <tr>
+        <th nzShowSort nzSortKey="data">日期</th>
+        <th nzShowSort nzSortKey="time">时间</th>
+        <th>链接</th>
+        <th>手机号A</th>
+        <th>车牌号</th>
+        <th>手机号B</th>
+        <th nzShowSort nzSortKey="call">通话时长</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of filterTable.data">
+      <td>{{data.time}}</td>
+      <td>{{data.time}}</td>
+      <td>{{data.link}}</td>
+      <td>{{data.tela}}</td>
+      <td>{{data.telb}}</td>
+      <td>{{data.license}}</td>
+      <td>{{data.call}}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>
